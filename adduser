@@ -1,0 +1,2 @@
+curl -vvv -X POST -H "Content-Type:application/json" localhost:3000/data/users -d'{"name":"jim",
+"password":"123","attr":"nothing"}'

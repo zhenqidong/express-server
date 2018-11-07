@@ -10,10 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-request-id": "^1.4.1",
+    "lodash": "^4.17.11",
     "mongodb": "^3.1.8",
-    "nodemon": "^1.18.5"
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.6",
+    "strftime": "^0.10.0"
   }
 }
