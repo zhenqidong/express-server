@@ -29,16 +29,24 @@ const bcrypt = require('bcrypt')
 const BCRYPT_SALT_ROUNDS = 12
 const addrequestId = require('express-request-id')()
 
-
-
 // all general functions
-const hashPassword = (tuples) => Promise.reduce( tuple,  (agg, [ key, value ]) => 
-  bcrypt.hash(value, BCRYPT_SALT_ROUNDS ).then( encValues => ({
-    [key]:encValues,
-    ...agg
-  }), {})
-)
+// const hashPassword = (tuples) => Promise.reduce( tuples,  (agg, [ key, value ]) => {
+//   console.log(key, value)
+//   return bcrypt.hash(value, BCRYPT_SALT_ROUNDS ).then( encValues => ({
+//     [key]:encValues,
+//     ...agg
+//   }), {})}
+// )
 
+const hashPassword = (tuples) => Promise.reduce( 
+  tuples,  
+  (agg, [ key, value ]) => 
+    bcrypt.hash(value, BCRYPT_SALT_ROUNDS ).then( encValues => ({
+      [key]:encValues,
+      ...agg
+    }), {}),
+  {}
+)
 const app = express()
 // var express = require('express');
 // var https = require('https');
@@ -310,6 +318,7 @@ app.route("/data/:collection?/:command?")
     if( ! req.query._id ) res.status(400).end("Invalid request, no _id specified")
     console.log('Updating')    
     return hashPassword(toPairs(pick(req.body, fieldsToBeEncrypted))).then( obj => {
+      // console.log({ ...req.body, ...obj })
       db.collection(req.params.collection)
       .findOneAndUpdate(
         { _id: new OID(req.query._id) }, 
@@ -321,14 +330,14 @@ app.route("/data/:collection?/:command?")
           upsert: true
         },
         (err,result) => {
-        //console.log(result.result.n)
+        console.log(result)
           if(err) {
             res.status(500).send(err)
           } else {
-            if(result.result.n == 0) {
-              res.status(404).end("Not Found")
+            if(result.ok === 1) {
+              res.status(200).json(result.value)
             } else {
-              res.status(200).end("Done")
+              res.status(404).json(result)
             }
           }
         }

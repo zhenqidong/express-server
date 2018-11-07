@@ -65,3 +65,15 @@
 - [Wed, 07 Nov 2018 02:01:02 GMT] "GET /data/users" 200 24.116
 - [Wed, 07 Nov 2018 02:01:20 GMT] "DELETE /data/users/?_id=5be206f044c5fc1df6a6c9fe" 200 2.468
 - [Wed, 07 Nov 2018 02:01:23 GMT] "GET /data/users" 200 9.723
+- [Wed, 07 Nov 2018 04:03:21 GMT] "GET /data/users" 200 25.944
+- [Wed, 07 Nov 2018 04:03:49 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 500 4.312
+- [Wed, 07 Nov 2018 04:33:12 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 404 690.427
+- [Wed, 07 Nov 2018 04:33:23 GMT] "GET /data/users" 200 21.086
+- [Wed, 07 Nov 2018 04:34:02 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 404 670.789
+- [Wed, 07 Nov 2018 04:34:38 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 404 687.248
+- [Wed, 07 Nov 2018 04:35:58 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 404 686.657
+- [Wed, 07 Nov 2018 04:36:43 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 404 687.839
+- [Wed, 07 Nov 2018 04:40:37 GMT] "PUT /data/users/?_id=5be245e2164cf52ebf9bb2a4" 200 689.118
+- [Wed, 07 Nov 2018 04:41:21 GMT] "DELETE /data/users/?_id=5be245e2164cf52ebf9bb2a" 500 4.172
+- [Wed, 07 Nov 2018 04:41:52 GMT] "DELETE /data/users/?_id=5be245e2164cf52ebf9bb2a4" 200 4.054
+- [Wed, 07 Nov 2018 04:42:14 GMT] "GET /data/users" 200 18.171
